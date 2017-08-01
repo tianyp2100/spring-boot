@@ -1,0 +1,2 @@
+-- 初始化数据库
+CREATE DATABASE IF NOT EXISTS loveshare  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

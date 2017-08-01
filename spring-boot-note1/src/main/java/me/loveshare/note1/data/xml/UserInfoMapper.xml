@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.loveshare.note1.data.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="me.loveshare.note1.data.entity.dbo.UserInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="compellation" property="compellation" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="age" property="age" jdbcType="TINYINT" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="zodiac" property="zodiac" jdbcType="CHAR" />
+    <result column="constellation" property="constellation" jdbcType="CHAR" />
+    <result column="blood_type" property="bloodType" jdbcType="CHAR" />
+    <result column="birthplace" property="birthplace" jdbcType="INTEGER" />
+    <result column="edu_degree" property="eduDegree" jdbcType="TINYINT" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="about_me" property="aboutMe" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="is_deleted" property="isDeleted" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, compellation, sex, age, birthday, zodiac, constellation, blood_type, birthplace, 
+    edu_degree, avatar, about_me, gmt_create, gmt_modified, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="me.loveshare.note1.data.entity.dbo.UserInfo" useGeneratedKeys="true" keyProperty="id">
+    insert into user_info (id, compellation, sex, 
+      age, birthday, zodiac, 
+      constellation, blood_type, birthplace, 
+      edu_degree, avatar, about_me, 
+      gmt_create, gmt_modified, is_deleted
+      )
+    values (#{id,jdbcType=INTEGER}, #{compellation,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{age,jdbcType=TINYINT}, #{birthday,jdbcType=TIMESTAMP}, #{zodiac,jdbcType=CHAR}, 
+      #{constellation,jdbcType=CHAR}, #{bloodType,jdbcType=CHAR}, #{birthplace,jdbcType=INTEGER}, 
+      #{eduDegree,jdbcType=TINYINT}, #{avatar,jdbcType=VARCHAR}, #{aboutMe,jdbcType=VARCHAR}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT}
+      )
+  </insert>
+  <!--批量插入数据 开始-->
+  <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO user_info
+        (
+          compellation, sex, age, birthday, zodiac, constellation,
+          blood_type, birthplace, edu_degree, avatar, about_me, gmt_create, gmt_modified, is_deleted
+        )
+    VALUES
+    <foreach collection="list" item="item" index="index" separator="," >
+        (
+            #{item.compellation,jdbcType=VARCHAR}, #{item.sex,jdbcType=CHAR},
+            #{item.age,jdbcType=TINYINT}, #{item.birthday,jdbcType=TIMESTAMP}, #{item.zodiac,jdbcType=CHAR},
+            #{item.constellation,jdbcType=CHAR}, #{item.bloodType,jdbcType=CHAR}, #{item.birthplace,jdbcType=INTEGER},
+            #{item.eduDegree,jdbcType=TINYINT}, #{item.avatar,jdbcType=VARCHAR}, #{item.aboutMe,jdbcType=VARCHAR},
+            #{item.gmtCreate,jdbcType=TIMESTAMP}, #{item.gmtModified,jdbcType=TIMESTAMP}, #{item.isDeleted,jdbcType=TINYINT}
+        )
+    </foreach>
+  </insert>
+  <!--批量插入数据 结束-->
+  <!--总条数统计 开始-->
+  <select id="selectUserInfoCount" resultType="java.lang.Integer">
+      SELECT COUNT(*) FROM user_info WHERE is_deleted = 0;
+  </select>
+  <!--总条数统计 结束-->
+  <!--分页查询数据 开始-->
+    <resultMap id="BaseResultMap_Page" type="me.loveshare.note1.data.entity.dto.UserInfoDTO" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="compellation" property="compellation" jdbcType="VARCHAR" />
+        <result column="sex" property="sex" jdbcType="CHAR" />
+        <result column="age" property="age" jdbcType="TINYINT" />
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+        <result column="zodiac" property="zodiac" jdbcType="CHAR" />
+        <result column="constellation" property="constellation" jdbcType="CHAR" />
+        <result column="blood_type" property="bloodType" jdbcType="CHAR" />
+        <result column="birthplace" property="birthplace" jdbcType="INTEGER" />
+        <result column="edu_degree" property="eduDegree" jdbcType="TINYINT" />
+        <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+        <result column="about_me" property="aboutMe" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List_Page" >
+        t1.id, t1.compellation, t1.sex, t1.age, t1.birthday, t1.zodiac, t1.constellation, t1.blood_type, t1.birthplace, t1.edu_degree, t1.avatar, t1.about_me
+    </sql>
+    <!--limit分页-->
+    <select id="selectUserInfoPageLimit" resultMap="BaseResultMap_Page" parameterType="me.loveshare.note1.data.entity.vo.common.Query">
+        SELECT
+          <include refid="Base_Column_List_Page" />
+        FROM user_info AS t1 WHERE t1.is_deleted = 0
+        LIMIT #{pageIndex,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER};
+    </select>
+    <!--查询id再通过id分页-->
+    <select id="selectUserInfoPageJoinId" resultMap="BaseResultMap_Page" parameterType="me.loveshare.note1.data.entity.vo.common.Query">
+        SELECT
+            <include refid="Base_Column_List_Page" />
+         FROM user_info AS t1 JOIN
+         (SELECT id FROM user_info WHERE is_deleted = 0 LIMIT #{pageIndex,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}) AS t2
+          ON t1.id = t2.id
+    </select>
+  <!--分页查询数据 结束-->
+  <insert id="insertSelective" parameterType="me.loveshare.note1.data.entity.dbo.UserInfo" useGeneratedKeys="true" keyProperty="id">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="compellation != null" >
+        compellation,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="zodiac != null" >
+        zodiac,
+      </if>
+      <if test="constellation != null" >
+        constellation,
+      </if>
+      <if test="bloodType != null" >
+        blood_type,
+      </if>
+      <if test="birthplace != null" >
+        birthplace,
+      </if>
+      <if test="eduDegree != null" >
+        edu_degree,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="aboutMe != null" >
+        about_me,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="compellation != null" >
+        #{compellation,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zodiac != null" >
+        #{zodiac,jdbcType=CHAR},
+      </if>
+      <if test="constellation != null" >
+        #{constellation,jdbcType=CHAR},
+      </if>
+      <if test="bloodType != null" >
+        #{bloodType,jdbcType=CHAR},
+      </if>
+      <if test="birthplace != null" >
+        #{birthplace,jdbcType=INTEGER},
+      </if>
+      <if test="eduDegree != null" >
+        #{eduDegree,jdbcType=TINYINT},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="aboutMe != null" >
+        #{aboutMe,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="me.loveshare.note1.data.entity.dbo.UserInfo" >
+    update user_info
+    <set >
+      <if test="compellation != null" >
+        compellation = #{compellation,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zodiac != null" >
+        zodiac = #{zodiac,jdbcType=CHAR},
+      </if>
+      <if test="constellation != null" >
+        constellation = #{constellation,jdbcType=CHAR},
+      </if>
+      <if test="bloodType != null" >
+        blood_type = #{bloodType,jdbcType=CHAR},
+      </if>
+      <if test="birthplace != null" >
+        birthplace = #{birthplace,jdbcType=INTEGER},
+      </if>
+      <if test="eduDegree != null" >
+        edu_degree = #{eduDegree,jdbcType=TINYINT},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="aboutMe != null" >
+        about_me = #{aboutMe,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null" >
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="me.loveshare.note1.data.entity.dbo.UserInfo" >
+    update user_info
+    set compellation = #{compellation,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      age = #{age,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      zodiac = #{zodiac,jdbcType=CHAR},
+      constellation = #{constellation,jdbcType=CHAR},
+      blood_type = #{bloodType,jdbcType=CHAR},
+      birthplace = #{birthplace,jdbcType=INTEGER},
+      edu_degree = #{eduDegree,jdbcType=TINYINT},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      about_me = #{aboutMe,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
