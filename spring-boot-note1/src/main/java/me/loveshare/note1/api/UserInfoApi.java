@@ -28,7 +28,7 @@ import java.util.Date;
 @Slf4j
 @RestController
 @RequestMapping("userinfo")
-public class UserInfoApi {
+public class UserInfoApi extends BaseApi {
 
     @Autowired
     private MultiThreadInitData multiThreadInitData;
