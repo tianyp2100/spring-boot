@@ -14,6 +14,10 @@
         支持Tomcat的http/https的双协议支持
         支持Freemarker Html+Css+Js页面
     </description>
+    <organization>
+        <name>timespacexstar</name>
+        <url>https://loveshare.me/</url>
+    </organization>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
