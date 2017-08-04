@@ -9,7 +9,14 @@
     <packaging>jar</packaging>
 
     <name>spring-boot-note1</name>
-    <description>Spring boot学习笔记1</description>
+    <description>
+        Spring boot学习笔记1:
+        MyBatis、Druid、MySQL、事务、Druid监控、优化分页、JSONP、Swagger、JUnit、Slf4j+Logback日志、Undertow
+    </description>
+    <organization>
+        <name>timespacexstar</name>
+        <url>https://loveshare.me/</url>
+    </organization>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

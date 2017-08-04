@@ -1,5 +1,7 @@
 package me.loveshare.note1.data.entity.bo.common;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +20,22 @@ public class Page<T> implements Serializable {
     private static final int MAX = 2147483647;
 
     //页面数据
+    @ApiModelProperty("页面数据")
     private List<T> datas;
     //总页数
+    @ApiModelProperty("总页数")
     private int totalPage;
     //总记录数
+    @ApiModelProperty("总记录数")
     private int totalCount;
-    //页码
+    //页码 --若此值=1，则是第一页，若此值=totalPage，则是最后一页
+    @ApiModelProperty("页码 --若此值=1，则是第一页，若此值=totalPage，则是最后一页")
     private int pageIndex = DEFAULT_PAGE_INDEX;
     //每页数据大小
+    @ApiModelProperty("每页数据大小")
     private int pageSize = DEFAULT_PAGE_SIZE;
     //当前页数据条数
+    @ApiModelProperty("当前页数据条数")
     private int currentPageDatasCount;
 
     //Constructor
