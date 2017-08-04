@@ -11,7 +11,7 @@ MyBatis Generator自动生成Dao、Model、Mapping插件
 	2：Mapper专用MyBatis的Dao、Model、Mapping生成，mapper-spring-boot-starter
 ```
 ### 下载全功能mybatis-generator的文件
-
+[mybatis-generator-core-1.3.5.zip](http://download.csdn.net/detail/typa01_kk/9921314)
 ### IntelliJ IDEA编译
 ![编译mybatis-generator](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/github/idea-mvn-generator.jpg.jpg)
 
