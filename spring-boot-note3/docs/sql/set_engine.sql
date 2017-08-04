@@ -1,0 +1,6 @@
+-- MariaDB的数据库引擎转换为支持事务的Maria引擎
+-- Maria存储引擎的特点是：支持缓存数据和索引文件，应用了行锁设计，提供了MVCC功能，支持事务和非事务安全的选项，以及更好的BLOB字符类型的处理性能
+-- 注：MariaDB默认引擎InnoDB，但配置Aria支持事务，测试暂不支持事务，暂不要执行！
+-- ALTER TABLE user_info ENGINE=MARIA TRANSACTIONAL=1;
+-- ALTER TABLE t1 ENGINE=MARIA TRANSACTIONAL=1;
+-- ALTER TABLE t2 ENGINE=MARIA TRANSACTIONAL=1;
