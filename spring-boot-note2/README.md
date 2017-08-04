@@ -15,4 +15,3 @@ Spring boot学习笔记2
 |Druid数据源监控|http://192.168.1.119:5202/note2/druid/index.html|admin/123456|
 |JSON测试|http://192.168.1.119:5202/note2/userinfo/list.json|---|
 |数据库文档|docs文件夹|---|
-
