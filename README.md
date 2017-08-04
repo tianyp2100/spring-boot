@@ -14,3 +14,7 @@ druid-spring-boot-starter、mybatis-spring-boot-starter、mapper-spring-boot-sta
 ```
 MyBatis Generator自动生成Dao、Model、Mapping插件：普通生成和Mapper专用生成2种
 ```
+## spring-boot-note4
+```
+ 支持Tomcat的http/https的双协议（双端口）、支持Freemarker Html+Css+Js页面
+```
