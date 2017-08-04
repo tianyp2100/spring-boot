@@ -1,0 +1,22 @@
+server:
+  address: 192.168.1.119
+  port: 5204
+  context-path: /note4
+  tomcat:
+    max-threads: 1000
+    uri-encoding: UTF-8
+https:
+  port: 7204
+  keystore-password: 123456
+  keystore-file: D:/rsakey/loveshare.keystore
+spring:
+  resources:
+    static-locations: classpath:/static/
+  freemarker:
+    template-loader-path: classpath:/templates/
+    charset: UTF-8
+    cache: false
+    prefer-file-system-access: true
+    content-type: text/html
+    enabled: true
+    suffix: .html

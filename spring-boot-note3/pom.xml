@@ -5,7 +5,7 @@
 
     <groupId>me.loveshare</groupId>
     <artifactId>spring-boot-note3</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>spring-boot-note3</name>

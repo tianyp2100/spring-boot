@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} - %-5level - ${PID} - [%-32.32thread] - %-64.64logger{64} : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/logs/note4/note4.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/home/logs/note4/note4.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} - %-5level - ${PID} - [%-32.32thread] - %-64.64logger{64} : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="me.loveshare" level="INFO"/>
+
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.xnio" level="INFO"/>
+    <logger name="java.sql" level="INFO"/>
+    <logger name="com.netflix" level="INFO"/>
+    <logger name="io.undertow" level="INFO"/>
+    <logger name="ch.qos.logback" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </root>
+</configuration>
