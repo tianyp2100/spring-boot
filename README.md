@@ -7,7 +7,7 @@ MyBatis、Druid、MySQL、事务、Druid监控、优化分页、JSONP、Swagger�
 ```
 ## spring-boot-note2
 ```
-MySQL Druid MyBatis Mapper Pagehelper
+MySQL Druid MyBatis通用Mapper Pagehelper分页插件
 druid-spring-boot-starter、mybatis-spring-boot-starter、
 mapper-spring-boot-starter、pagehelper-spring-boot-starter
 ```
