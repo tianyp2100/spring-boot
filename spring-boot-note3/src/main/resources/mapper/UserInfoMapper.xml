@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.loveshare.note3.data.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="me.loveshare.note3.data.entity.dbo.UserInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="compellation" jdbcType="VARCHAR" property="compellation" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="age" jdbcType="TINYINT" property="age" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="zodiac" jdbcType="CHAR" property="zodiac" />
+    <result column="constellation" jdbcType="CHAR" property="constellation" />
+    <result column="blood_type" jdbcType="CHAR" property="bloodType" />
+    <result column="birthplace" jdbcType="INTEGER" property="birthplace" />
+    <result column="edu_degree" jdbcType="TINYINT" property="eduDegree" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="about_me" jdbcType="VARCHAR" property="aboutMe" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+</mapper>

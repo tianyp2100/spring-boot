@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.loveshare.note3.data.dao.T1Mapper">
+  <resultMap id="BaseResultMap" type="me.loveshare.note3.data.entity.dbo.T1">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="names" jdbcType="VARCHAR" property="names" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+</mapper>
