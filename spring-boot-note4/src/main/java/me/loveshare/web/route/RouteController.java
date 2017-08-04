@@ -12,7 +12,7 @@ public class RouteController {
     /**
      * Html页面测试
      * http://192.168.1.119:5204/note4/
-     * https: https://192.168.1.119:7204/note4/test.json
+     * https://192.168.1.119:7204/note4/
      * http://192.168.1.119:5204/note4/gy.html
      * https://192.168.1.119:7204/note4/gy.girl
      * 注：1.此处后缀，不限制
