@@ -1,0 +1,65 @@
+server:
+  address: 192.168.1.119
+  port: 5202
+  context-path: /note2
+# MySQL数据库 + Druid连接池：JDBC配置、连接池配置、监控配置参数
+# 配置多个数据源：spring.datasource.druid.one.* /spring.datasource.druid.two.*，若有一个则可省略.one。
+# Web监控地址: http://192.168.1.119:5202/note2/druid/index.html
+spring:
+  datasource:
+    druid:
+      one:
+        db-type: mysql
+        url: jdbc:mysql://192.168.1.120:3306/loveshare?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&oldsyntax=true
+        username: dba
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver
+        initial-size: 8
+        max-active: 20
+        min-idle: 8
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-open-prepared-statements: 20
+        max-pool-prepared-statement-per-connection-size: 20
+        validation-query: SELECT 1 FROM DUAL
+        validation-query-timeout: 30
+        test-on-borrow: false
+        test-on-return: true
+        test-while-idle: true
+        log-abandoned: true
+        remove-abandoned: true
+        remove-abandoned-timeout-millis: 300000
+        time-between-connect-error-millis: 30000
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 1800000
+        max-evictable-idle-time-millis: 25200000
+        filters: stat,wall,log4j
+        connection-properties: stat.mergeSql=true;stat.slowSqlMillis=5000
+        stat-view-servlet:
+          enabled: true
+          url-pattern: /druid/*
+          reset-enable: false
+          login-username: admin
+          login-password: 123456
+          allow: 192.168.1.119,192.168.1.165,192.168.1.175
+          deny: 192.168.10.119
+# MyBatis ORM持久层框架
+mybatis:
+  mapper-locations: classpath*:me/loveshare/note2/data/mapper/*Mapper.xml
+  type-aliases-package: me.loveshare.note2.data.entity.dbo
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+    default-fetch-size: 100
+    default-statement-timeout: 300
+# MyBatis通用Mapper：通用的单表的增删改查，不支持通用的多表联合查询，不是表中字段的属性必须加 @Transient 注解
+mapper:
+  mappers: tk.mybatis.mapper.common.Mapper
+  not-empty: false
+  identity: MYSQL
+# Pagehelper分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count= countSql
