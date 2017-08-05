@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传页面</title>
+    <link rel="stylesheet" type="text/css" href="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="css/upload.css">
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/jquery-core/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/nprogress/nprogress.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/util/object.utils.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/upload/ajaxupload.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/upload/browsercompatibility.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/upload/json2.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="js/upload.js" charset="UTF-8"></script>
+</head>
+<body style="width: 100%;">
+<div class="warmtips" style="margin-left: -8px; margin-top: -8px;" id="warmtips" onclick="close_warmtips();"></div>
+<h1>资源文件上传测试页</h1>
+<h4>温馨提示：点击选择文件上传</h4>
+<!--<p class="btn-upload" style="margin-top: 200px;width: 40%;margin-left: 200px;" id="upload">上传</p>-->
+<label>上传地址:
+    <input name="target" class="radio" type="radio" checked value="disk">磁盘
+    <input name="target" class="radio" type="radio" value="oss">对象存储
+</label>
+<br/>
+<hr/>
+<label>私有:
+    <input name="own" class="radio"  type="radio" value="yes">是
+    <input name="own" class="radio"  type="radio" checked value="no">否
+</label>
+<hr/>
+<strong>上传结果:</strong>&nbsp;<span id="resmsg" style="color: blue;"></span>
+<hr/>
+<br/>
+<input type="file" id="changeFile" onchange="changeFile();"/><br/>
+<hr/>
+<br/>
+<div id="progress">
+    <div id="bar"></div>
+    <div id="percent">0%</div >
+</div><br/>
+<span id="loaded"></span>/<span id="total"></span>MB.<br/>
+<!--<p id="uploadFile" class="btn-upload-file" onclick="uploadFile();">上传</p>-->
+</body>
+</html>

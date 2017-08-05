@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.loveshare</groupId>
+    <artifactId>spring-boot-note5</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>spring-boot-note5</name>
+    <description>
+        Spring boot学习笔记5:
+        文件上传大小限制配置
+        文件上传进度条支持
+        jetty作为web服务器
+        数据存储阿里云OSS服务器
+        支持百度富文本编辑器Ueditor的数据处理
+        自定义异常
+        java正则表达式
+    </description>
+    <organization>
+        <name>timespacexstar</name>
+        <url>https://loveshare.me/</url>
+    </organization>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.7.RELEASE</version>  <!--最新版的1.5.6在jetty上不能相应文件上传，故未使用-->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <logback.classic.version>1.2.3</logback.classic.version>
+        <lombok.version>1.16.16</lombok.version>
+        <fastjson.version>1.2.35</fastjson.version>
+        <json20160810.version>20160810</json20160810.version>
+        <commons.fileupload.version>1.3.2</commons.fileupload.version>
+        <commons.io.version>2.5</commons.io.version>
+        <aliyun.oss.version>2.5.0</aliyun.oss.version>
+        <im4java.version>1.4.0</im4java.version>
+        <iphone_rotate_img.version>0.0.1</iphone_rotate_img.version>
+        <zxing.version>3.3.0</zxing.version>
+        <mediautil.version>1.0</mediautil.version>
+        <metadata.extractor.version>2.3.1</metadata.extractor.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!-- Logger -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.classic.version}</version>
+        </dependency>
+        <!-- Tools -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!--Json-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json20160810.version}</version>
+        </dependency>
+        <!-- File io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons.fileupload.version}</version>
+        </dependency>
+        <!--OSS-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${aliyun.oss.version}</version>
+        </dependency>
+        <!-- Image -->
+        <dependency>
+            <groupId>org.im4java</groupId>
+            <artifactId>im4java</artifactId>
+            <version>${im4java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hxwisec</groupId>
+            <artifactId>mediautil</artifactId>
+            <version>${mediautil.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hxwisec</groupId>
+            <artifactId>metadata-extractor</artifactId>
+            <version>${metadata.extractor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hxwisec</groupId>
+            <artifactId>iphone_rotate_img</artifactId>
+            <version>${iphone_rotate_img.version}</version>
+        </dependency>
+        <!-- QRcode -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${zxing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>${zxing.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>templates/**</include>
+                    <include>static/**</include>
+                    <include>mapper/**</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
