@@ -17,3 +17,8 @@ MyBatis Generator自动生成Dao、Model、Mapping插件：普通生成和Mapper
 ```
  支持Tomcat的http/https的双协议（双端口）、支持Freemarker Html+Css+Js页面
 ```
+### spring-boot-note5
+```
+上传文件到磁盘、阿里云OSS对象存储、大小限制、上传进度条、jetty服务器、百度富文本编辑器Ueditor、图片和base64字符串转换、
+自定义异常、java正则表达式、基于GraphicsMagick、im4java、普通压缩图片、iphone图片旋转、算数图片验证码、二维码
+```
