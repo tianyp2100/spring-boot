@@ -24,3 +24,8 @@
 |获取阿里云私有链接签名地址|http://192.168.2.152:5205/note5/oss-sign-url.json|
 |算数图片验证码、二维码|http://192.168.2.152:5205/note5/image.html|
 |附件：jar包|jars/*.jarx，注：修改扩展名为jar即可|
+
+### 图片验证码
+![图片验证码](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/img-verified-eg.jpeg)
+### 二维码
+![二维码](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/defaultqrcode.jpeg)
