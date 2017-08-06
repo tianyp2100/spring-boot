@@ -29,3 +29,5 @@
 ![图片验证码](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/img-verified-eg.jpeg)
 ### 二维码
 ![二维码](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/defaultqrcode.jpeg)
+### 上传页面
+![上传页面](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/github/image-upload-html.png)

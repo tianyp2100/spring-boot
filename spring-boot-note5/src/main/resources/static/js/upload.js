@@ -39,8 +39,8 @@ function uploadFile() {
     var own = $("input[name='own']:checked").val() == "no" ? "false" : "true";
     var formData = new FormData();
     formData.append("file", $("#changeFile").get(0).files[0]);
-    formData.append("type", 1);
-    formData.append("source", 3);
+    formData.append("type", 3);  //文件类型：1.视频 2.音频 3.图片 4.压缩文件 5:办公文件
+    formData.append("source", 3); //文件平台来源：1.家庭 2.学校 3.公司 4.户外
     formData.append("desc", "上传文件测试");
     formData.append("own", own);
     $.ajax({
