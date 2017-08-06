@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片测试页面</title>
+    <link rel="stylesheet" type="text/css" href="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="css/image.css">
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/jquery-core/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/nprogress/nprogress.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/util/object.utils.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/util/date.utils.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/upload/ajaxupload.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/upload/browsercompatibility.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/upload/json2.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/image.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="warmtips" style="margin-left: -8px; margin-top: -8px;" id="warmtips" onclick="close_warmtips();"></div>
+<h1>图片：验证码、二维码、等比图片压缩</h1>
+<hr/>
+<img id="img-verified" style="cursor: pointer;" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/defaultvcode.jpeg">&nbsp;&nbsp;<a id="img-verified-refresh" style="cursor: pointer;color: blue;" >刷新</a>
+<hr/><br/>
+<img id="img-qrcode" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/defaultqrcode.jpeg"><br/>
+<input id="url" type="text" style="width: 500px;" maxlength="200" placeholder="情输入您的域名" value="https://loveshare.me"><br/>
+<p class="btn">获取二维码</p><br/><br/>
+<hr/><br/>
+</body>
+</html>

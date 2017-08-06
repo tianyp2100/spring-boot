@@ -1,0 +1,31 @@
+@charset "utf-8";
+.warmtips {
+    left: 0;
+    top: 0;
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    font-family: "KaiTi";
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+}
+.btn {
+    width: 100px;
+    float: left;
+    color: #fff;
+    width: 70px;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #ca0915;
+    border-radius: 3px;
+    cursor: pointer;
+}

@@ -27,7 +27,7 @@ public class UploadApi extends ResourceBaseApi {
     private static final String ROOT_DISK_NAME = "D:\\resources\\";
 
     /**
-     * 上传资源文件到服务磁盘
+     * 上传资源文件到服务器磁盘
      *
      * @param file   待上传的资源文件
      * @param type   文件类型: 1.视频 2.PPT 3.PDF 4.动画 5.WORD 6.音频 7.录屏 10.EXCEL 11.MP4+PPT关联 12.图片 13.压缩文件 14.文档
@@ -66,7 +66,7 @@ public class UploadApi extends ResourceBaseApi {
     }
 
     /**
-     * 上传资源文件到阿里云对象存储服务器服务器
+     * 上传资源文件到阿里云对象存储服务器
      *
      * @param file   待上传的资源文件
      * @param uAT    用户访问令牌：user access token

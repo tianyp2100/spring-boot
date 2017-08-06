@@ -16,7 +16,17 @@ public class RouteController {
     }
 
     @RequestMapping("upload")
-    public String toGYPage() {
+    public String toUploadPage() {
         return "html/upload";
+    }
+
+    @RequestMapping("ueditor")
+    public String toUeditorPage() {
+        return "html/ueditor";
+    }
+
+    @RequestMapping("image")
+    public String toImagePage() {
+        return "html/image";
     }
 }

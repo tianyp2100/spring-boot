@@ -1,8 +1,12 @@
 package me.loveshare.note5.data.util;
 
+import org.apache.commons.beanutils.BeanMap;
+import org.apache.commons.beanutils.BeanUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tony on 2017/3/28.
@@ -58,5 +62,27 @@ public class CollectionUtils {
                 return false;
         }
         return true;
+    }
+
+    /**
+     * map集合转对象
+     */
+    public static Object map2Object(Map<String, Object> map, Class<?> beanClass)
+            throws Exception {
+        if (map == null)
+            return null;
+        Object obj = beanClass.newInstance();
+        BeanUtils.populate(obj, map);
+        return obj;
+    }
+
+    /**
+     * 对象转map集合
+     */
+    public static Map<?, ?> object2Map(Object obj) {
+        if (obj == null) {
+            return null;
+        }
+        return new BeanMap(obj);
     }
 }

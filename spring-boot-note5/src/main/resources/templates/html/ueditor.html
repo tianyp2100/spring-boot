@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>百度Ueditor富文本编辑器</title>
+    <link rel="stylesheet" type="text/css" href="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="css/ueditor.css">
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/jquery-core/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/plugins/nprogress/nprogress.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/ueditor.utils.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/ueditor.js" charset="utf-8"></script>
+</head>
+<body>
+    <div>
+        <h1>Ueditor富文本编辑器</h1>
+        <h6>实现功能：加载配置、图片、涂鸦上传，其他功能可自定义扩展！</h6>
+        <h5 style="color: red;">&nbsp;&nbsp;服务器代码(Java + Spring boot + Aliyun OSS)：<a target="_blank" href="https://github.com/typa1/spring-boot/tree/master/spring-boot-note5">https://github.com/typa1/spring-boot/tree/master/spring-boot-note5</a></h5>
+        <h5 style="color: red;">&nbsp;&nbsp;Ueditor 前段html代码：<a target="_blank" href="https://github.com/typa1/web/tree/master/plug-in/ueditor">https://github.com/typa1/web/tree/master/plug-in/ueditor</a></h5>
+        <h5 style="color: green;">&nbsp;&nbsp;Ueditor富文本编辑器 ,后台服务器接入接口，支持部分jsonp跨域（未全部支持），建议nginx+路径转发！</h5>
+        <textarea id='editor' style="width:100%;height:500px;"></textarea>
+    </div>
+    <p class="btn-send" style="margin-top: 10px;width: 100%;" id="send" onclick="sendData();">提交数据</p>
+    <h5 style="color: red;">&nbsp;&nbsp;Ueditor 官网：<a target="_blank" href="http://ueditor.baidu.com">http://ueditor.baidu.com</a></h5>
+    <h5 style="color: red;">&nbsp;&nbsp;Ueditor API 文档：<a target="_blank" href="http://ueditor.baidu.com/doc">http://ueditor.baidu.com/doc</a></h5>
+    <h5 style="color: red;">&nbsp;&nbsp;Ueditor github 地址：<a target="_blank" href="http://github.com/fex-team/ueditor">http://github.com/fex-team/ueditor</a></h5>
+    <!--ueditor富文本编辑器-->
+    <script type="text/javascript" src="js/plug-in/ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/plug-in/ueditor/ueditor.all.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/plug-in/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
+
+    <!-- 公式插件 -->
+    <script type="text/javascript" src="js/plug-in/ueditor/kityformula-plugin/addKityFormulaDialog.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/plug-in/ueditor/kityformula-plugin/getKfContent.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/plug-in/ueditor/kityformula-plugin/defaultFilterFix.js" charset="utf-8"></script>
+</body>
+</html>
