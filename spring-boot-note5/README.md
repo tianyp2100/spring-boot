@@ -4,7 +4,7 @@
 ```
 1. 上传文件到磁盘、阿里云OSS对象存储
 2. 上传文件大小限制、上传进度条
-3. jetty服务器
+3. Jetty服务器的http/https的双协议
 4. 百度富文本编辑器Ueditor服务器Api
 5. 基于GraphicsMagick、im4java、普通awt压缩图片
 6. 图片和base64字符串转换
@@ -24,6 +24,7 @@
 |获取阿里云私有链接签名地址|http://192.168.2.152:5205/note5/oss-sign-url.json|
 |算数图片验证码、二维码|http://192.168.2.152:5205/note5/image.html|
 |附件：jar包|jars/*.jarx，注：修改扩展名为jar即可|
+|附件：证书文件夹|rsakey/loveshare.keystore|
 
 ### 图片验证码
 ![图片验证码](http://loveshare.oss-cn-shanghai.aliyuncs.com/universal/image/default/img-verified-eg.jpeg)
