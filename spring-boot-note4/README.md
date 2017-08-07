@@ -1,7 +1,7 @@
 Spring boot学习笔记4
 ============================
 ## 笔记点：
-1. 支持Tomcat的http/https(ssl/tls)的双协议（双端口）
+1. 支持Tomcat的http/https(ssl/tls)的双协议（双端口）（v8.5.16）
 2. 支持Freemarker模板的Html+Css+Js页面
 ## JDK自带工具keytool生成ssl证书
 ##### JDK自带生成SSL证书的工具：keytool

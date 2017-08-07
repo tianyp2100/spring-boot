@@ -11,7 +11,7 @@
     <name>spring-boot-note4</name>
     <description>
         Spring boot学习笔记4:
-        Tomcat服务器的http/https的双协议
+        Tomcat服务器的http/https的双协议（v8.5.16）
         Freemarker Html+Css+Js页面
     </description>
     <organization>
