@@ -22,4 +22,5 @@ Spring boot学习笔记1
 |JSON测试|http://192.168.1.119:5201/note1/userinfo/list.json|---|
 |初始化DB的数据|http://192.168.1.119:5201/note1/userinfo/initdbdatas.json|---|
 |数据库文档|docs文件夹|---|
+|附件：证书文件夹|rsakey/loveshare.keystore|---|
 
