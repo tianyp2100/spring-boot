@@ -11,6 +11,7 @@
     <name>spring-boot-note2</name>
     <description>
         Spring boot学习笔记2:
+        MyBatis通用Mapper和Pagehelper分页插件
         MySQL Druid MyBatis Mapper Pagehelper
         druid-spring-boot-starter、mybatis-spring-boot-starter、mapper-spring-boot-starter、pagehelper-spring-boot-starter
     </description>
