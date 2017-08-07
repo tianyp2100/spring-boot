@@ -4,7 +4,7 @@
 ```
 1. 上传文件到磁盘、阿里云OSS对象存储
 2. 上传文件大小限制、上传进度条
-3. Jetty服务器的http/https的双协议
+3. Jetty服务器的http/https的双协议（jetty-9.3.19.v20170502）
 4. 百度富文本编辑器Ueditor服务器Api
 5. 基于GraphicsMagick、im4java、普通awt压缩图片
 6. 图片和base64字符串转换
