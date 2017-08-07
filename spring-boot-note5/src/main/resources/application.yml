@@ -32,3 +32,7 @@ aliyun:
     ownedBucketName1: owned-test
     openedURL1: http://opened-test.oss-cn-hangzhou.aliyuncs.com/
     ownedURL1: http://owned-test.oss-cn-hangzhou.aliyuncs.com/
+https:
+  port: 7205
+  keystore-password: 123456
+  keystore-file: D:/rsakey/loveshare.keystore

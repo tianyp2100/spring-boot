@@ -13,7 +13,7 @@
         Spring boot学习笔记5:
         文件上传大小限制配置
         文件上传进度条支持
-        jetty作为web服务器
+        Jetty服务器的http/https的双协议
         数据存储阿里云OSS服务器
         支持百度富文本编辑器Ueditor的数据处理
         自定义异常
