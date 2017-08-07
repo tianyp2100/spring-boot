@@ -38,6 +38,7 @@ public class BaseApi {
     private final void printAccess(HttpServletRequest request) {
         StringBuilder su = new StringBuilder();
         su.append("\nUser-Access-Args:").append("{");
+        su.append("\"protocol\":\"").append(request.getProtocol() + "(" + request.getScheme()).append(")\",");
         su.append("\"ip\":\"").append(NetworkUtils.getIpAddr(request)).append("\",");
         su.append("\"port\":\"").append(NetworkUtils.getPort(request)).append("\",");
         su.append("\"method\":\"").append(request.getMethod()).append("\",");

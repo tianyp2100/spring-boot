@@ -1,10 +1,15 @@
 server:
   address: 192.168.1.119
-  port: 5201
+  port: 7201
   context-path: /note1
   undertow:
     accesslog:
       enabled: false
+  ssl:
+    key-password: 123456
+    key-store: D:/rsakey/loveshare.keystore
+http:
+  port: 5201
 datasource:
   type: mysql
   url: jdbc:mysql://192.168.1.120:3306/loveshare?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&oldsyntax=true

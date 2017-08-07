@@ -11,7 +11,9 @@
     <name>spring-boot-note1</name>
     <description>
         Spring boot学习笔记1:
-        MyBatis、Druid、MySQL、事务、Druid监控、优化分页、JSONP、Swagger、JUnit、Slf4j+Logback日志、Undertow
+        MyBatis、Druid、MySQL、事务、Druid监控
+        优化分页、JSONP、Swagger、JUnit、Slf4j+Logback日志
+        Undertow服务器支持http/https的双协议
     </description>
     <organization>
         <name>timespacexstar</name>

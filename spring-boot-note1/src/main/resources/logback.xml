@@ -20,14 +20,14 @@
 
     <logger name="me.loveshare" level="INFO"/>
 
-    <logger name="org.apache" level="ERROR"/>
-    <logger name="org.springframework" level="ERROR"/>
-    <logger name="org.hibernate" level="ERROR"/>
-    <logger name="org.xnio" level="ERROR"/>
-    <logger name="java.sql" level="ERROR"/>
-    <logger name="com.netflix" level="ERROR"/>
-    <logger name="io.undertow" level="ERROR"/>
-    <logger name="ch.qos.logback" level="ERROR"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.xnio" level="INFO"/>
+    <logger name="java.sql" level="INFO"/>
+    <logger name="com.netflix" level="INFO"/>
+    <logger name="io.undertow" level="INFO"/>
+    <logger name="ch.qos.logback" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="console"/>
