@@ -8,7 +8,7 @@ Spring boot学习笔记1
 4. Spring boot JSONP支持
 5. Spring boot Swagger Api Docs文档
 6. Spring boot Logback日志+@Slf4j日志
-7. Spring boot Web Server Undertow(exclusion tomcat) Undertow服务器支持http/https的双协议
+7. Spring boot Web Server Undertow(exclusion tomcat) Undertow服务器支持http/https的双协议 (v3.3.8)
 8. Spring boot JUnit Test
 9. Spring boot page优化分页
 ```
