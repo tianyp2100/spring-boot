@@ -6,8 +6,8 @@ server:
     accesslog:
       enabled: false
   ssl:
-    key-password: 123456
     key-store: D:/rsakey/loveshare.keystore
+    key-store-password: 123456
 http:
   port: 5201
 datasource:
