@@ -59,11 +59,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public JsonResult list(Query query) {
 
-        //处理分页相关数据
-        Integer pageIndex = Page.isEmpty2DefaultValue(query.getPageIndex(), Page.DEFAULT_PAGE_INDEX);
-        Integer pageSize = Page.isEmpty2DefaultValue(query.getPageSize(), Page.DEFAULT_PAGE_SIZE);
-        query.setPageIndex((pageIndex - 1) * pageSize);
-        query.setPageSize(pageSize);
+        //数据库分页参数处理
+        query.initPageParams();
 
         //数据库查询数据
         Integer total = userInfoMapper.selectUserInfoCount();

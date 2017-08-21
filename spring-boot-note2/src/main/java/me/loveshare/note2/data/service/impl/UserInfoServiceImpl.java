@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import me.loveshare.note2.data.dao.UserInfoMapper;
 import me.loveshare.note2.data.entity.common.MyPage;
-import me.loveshare.note2.data.entity.common.Page;
 import me.loveshare.note2.data.entity.dbo.UserInfo;
 import me.loveshare.note2.data.entity.vo.common.ValueSortQuery;
 import me.loveshare.note2.data.service.UserInfoService;
@@ -32,11 +31,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     public MyPage<UserInfo> list(ValueSortQuery query) {
         Example example = new Example(UserInfo.class);
         Example.Criteria criteria = example.createCriteria();
-        //处理分页相关数据
-        Integer pageIndex = Page.isEmpty2DefaultValue(query.getPageIndex(), Page.DEFAULT_PAGE_INDEX);
-        Integer pageSize = Page.isEmpty2DefaultValue(query.getPageSize(), Page.DEFAULT_PAGE_SIZE);
-        query.setPageIndex(pageIndex);
-        query.setPageSize(pageSize);
+        //数据库分页参数处理
+        query.initPageParams();
         //模糊查询值
         String serachValue = query.getSerachValue();
         if (!StringUtils.isEmpty(serachValue)) {

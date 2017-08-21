@@ -1,5 +1,7 @@
 package me.loveshare.note2.data.entity.vo.common;
 
+import me.loveshare.note2.data.entity.common.Page;
+
 import java.io.Serializable;
 
 /**
@@ -12,11 +14,30 @@ public class Query implements Serializable {
     /**
      * 页码，默认第1页
      */
-    private Integer pageIndex = 1;
+    private Integer pageIndex = Page.DEFAULT_PAGE_INDEX;
     /**
      * 页面大小，默认每页10条
      */
-    private Integer pageSize = 10;
+    private Integer pageSize = Page.DEFAULT_PAGE_SIZE;
+
+    /**
+     * 数据库开始字段
+     */
+    private int begin;
+    /**
+     * 数据库结束字段
+     */
+    private int end;
+
+    /**
+     * 数据库分页参数处理
+     */
+    public void initPageParams() {
+        this.pageIndex = Page.isEmpty2DefaultValue(this.pageIndex, Page.DEFAULT_PAGE_INDEX);
+        this.pageSize = Page.isEmpty2DefaultValue(this.pageSize, Page.DEFAULT_PAGE_SIZE);
+        this.begin = (pageIndex - 1) * pageSize;
+        this.end = pageSize;
+    }
 
     public Integer getPageIndex() {
         return pageIndex;
@@ -32,5 +53,21 @@ public class Query implements Serializable {
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public int getBegin() {
+        return begin;
+    }
+
+    public void setBegin(int begin) {
+        this.begin = begin;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
     }
 }
