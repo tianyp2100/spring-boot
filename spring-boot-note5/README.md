@@ -14,6 +14,11 @@
 10. 自定义异常
 11. java正则表达式
 ```
+## 注：
+```
+1:由于git的.gitignore的过滤原因，将依赖的jar包，修改为*.jarx，若使用将*.jarx修改为*.jar，即可使用。
+2:由于ueditor的web代码占8.5M的使得GitHub认为spring-boot为javascript代码和git的.gitignore的过滤缘故，故将static下的js、css、img打包为static.xzip，若使用则将static.xzip修改为static.zip，解压即用。
+```
 
 |功能|链接|
 |---|---|
