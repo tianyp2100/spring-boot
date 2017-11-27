@@ -25,6 +25,8 @@ public class TestDataApi extends BaseApi {
 
     /**
      *测试地址：http://192.168.1.104:5204/note4/swagger-ui.html
+     *
+     *安全关闭spring-boot服务: curl -X POST http://192.168.1.104:5204/note4/shutdown
      */
 
     /**

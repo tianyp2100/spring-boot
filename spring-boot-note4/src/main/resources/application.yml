@@ -30,3 +30,7 @@ swagger:
   version: "1.0.0"
   author: "Tony_Tian"
   gmt: "2017-11-27"
+endpoints: # 安全地停止SpringBoot应用服务 (依赖jar：spring-boot-starter-actuator)
+  shutdown:
+    enabled: true #启用shutdown, curl -X POST http://host:port/shutdown
+    sensitive: false #禁用密码验证
