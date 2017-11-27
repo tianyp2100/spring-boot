@@ -40,6 +40,8 @@ https 7204
 
 |功能|链接|
 |---|---|
+|Validator数据验证 + i18n国际化的提示|http://192.168.1.104:5204/note4/swagger-ui.html|
+|安全关闭spring-boot服务|curl -X POST http://192.168.1.104:5204/note4/shutdown|
 |Http|http://192.168.1.119:5204/note4/test.json|
 |Https|https://192.168.1.119:7204/note4/test.json|
 |web页面1|http://192.168.1.119:5204/note4/|
