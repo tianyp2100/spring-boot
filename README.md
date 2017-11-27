@@ -16,7 +16,8 @@ MyBatis Generator自动生成Dao、Model、Mapping插件：普通生成和Mapper
 ```
 ### spring-boot-note4
 ```
- Tomcat的http/https的双协议（双端口）（v8.5.16）、支持Freemarker Html+Css+Js页面、Validator数据验证 + i18n国际化的提示、安全关闭spring-boot服务、swagger Api说明
+ Tomcat的http/https的双协议（双端口）（v8.5.16）、支持Freemarker Html+Css+Js页面、
+ Validator数据验证 + i18n国际化的提示、安全关闭spring-boot服务、swagger Api说明
 ```
 ### spring-boot-note5
 ```
