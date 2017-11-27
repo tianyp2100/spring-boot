@@ -2,10 +2,14 @@ package me.loveshare.web.api;
 
 import lombok.extern.slf4j.Slf4j;
 import me.loveshare.data.util.NetworkUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Locale;
 
 /**
  * Created by Tony on 2017/5/20.<br/>
@@ -16,6 +20,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 public class BaseApi {
+
+    @Autowired
+    private MessageSource messageSource;
 
     /**
      * 在本controller所有方法执行前执行本方法.<br>
@@ -46,5 +53,13 @@ public class BaseApi {
         su.append("\"user-agent\":\"").append(NetworkUtils.getUserAgent(request)).append("\",");
         su.append("\"uAT\":\"").append(request.getAttribute("uAT")).append("\"}");
         log.info(su.toString());
+    }
+
+    /**
+     * 获取国际化提示信息  ?lang=en_US / zh_CN
+     */
+    protected String getI18nMessage(HttpServletRequest request, String messageKey) {
+        Locale locale = RequestContextUtils.getLocale(request);
+        return messageSource.getMessage(messageKey, null, locale);
     }
 }

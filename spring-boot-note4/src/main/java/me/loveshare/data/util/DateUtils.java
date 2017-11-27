@@ -6,167 +6,137 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * 日期处理
+ * Created by Tony on 2017/9/12.
  */
 public class DateUtils {
 
     /**
-     * 毫秒日期格式 :年-月-日 时:分:秒:毫秒  星期  时区: yyyy-MM-dd HH:mm:ss:S E zZ
+     * 时间格式1 : 2017-09-12
      */
-    public static final String TIMESTAMP_ZONE_STYLE = "yyyy-MM-dd HH:mm:ss:S E zZ";
+    public static final String TIME_STYLE_1 = "yyyy-MM-dd";
+    /**
+     * 时间格式2 : 2017-09-12 10:20
+     */
+    public static final String TIME_STYLE_2 = "yyyy-MM-dd HH:mm";
+    /**
+     * 时间格式3 : 2017-09-12 10:20:32
+     */
+    public static final String TIME_STYLE_3 = "yyyy-MM-dd HH:mm:ss";
+    /**
+     * 时间格式4 : 2017-09-12 10:20:32:930
+     */
+    public static final String TIME_STYLE_4 = "yyyy-MM-dd HH:mm:ss:S";
+    /**
+     * 时间格式5 : 2017-09-12 10:20:32:930 星期二 CST+0800
+     */
+    public static final String TIME_STYLE_5 = "yyyy-MM-dd HH:mm:ss:S E zZ";
+    /**
+     * 时间格式6 : 2017年09月12日10时22分34秒
+     */
+    public static final String TIME_STYLE_6 = "yyyy年MM月dd日HH时mm分ss秒";
 
     /**
-     * 毫秒日期格式 :年-月-日 时:分:秒:毫秒: yyyy-MM-dd HH:mm:ss:S
+     * 时间格式7 : 20170912102332642
      */
-    public static final String TIMESTAMP_STYLE = "yyyy-MM-dd HH:mm:ss:S";
-
-    public static final String TIMESTAMP_STYLE_NO = "yyyyMMddHHmmssS";
+    public static final String TIME_STYLE_7 = "yyyyMMddHHmmssS";
 
     /**
-     * 毫秒日期格式 :年-月-日 时:分:秒: yyyy-MM-dd HH:mm:ss
+     * 按格式返回当前时间字符串
      */
-    public static final String TIME_0_STYLE = "yyyy-MM-dd HH:mm:ss";
-    public static final String TIME_0_STYLE_CHINESE = "yyyy年MM月dd日HH时mm分ss秒";
-
-    /**
-     * 毫秒日期格式 :年-月-日 时:分: yyyy-MM-dd HH:mm
-     */
-    public static final String TIME_1_STYLE = "yyyy-MM-dd HH:mm";
-
-    /**
-     * 毫秒日期格式 :年-月-日: yyyy-MM-dd
-     */
-    public static final String DATE_STYLE = "yyyy-MM-dd";
-
-    /**
-     * 获取日期、星期、时区
-     * yyyy-MM-dd HH:mm:ss:S E zZ
-     */
-    public static final String timestampzone(Date date) {
-        return new SimpleDateFormat(TIMESTAMP_ZONE_STYLE).format(date);
+    public static final String current(int style) {
+        return time(null, style);
     }
 
     /**
-     * yyyy-MM-dd HH:mm:ss:S
+     * 按格式返回时间字符串
+     *
+     * @param time  日期对象，若time=null，则返回当前时间
+     * @param style style 日期模板编号，例：TIME_STYLE_5则为5，默认：TIME_STYLE_3
+     * @return 格式化日期字符串
      */
-    public static final String timestamp(Date date) {
-        return new SimpleDateFormat(TIMESTAMP_STYLE).format(date);
-    }
-
-    public static final String timestampx(long timestamp) {
-        return new SimpleDateFormat(TIMESTAMP_STYLE_NO).format(timestamp);
-    }
-
-    /**
-     * yyyy-MM-dd HH:mm:ss:S
-     */
-    public static final String timestamp(long date) {
-        return new SimpleDateFormat(TIMESTAMP_STYLE).format(date);
-    }
-
-    public static final String timestampNow() {
-        return new SimpleDateFormat(TIMESTAMP_STYLE).format(System.currentTimeMillis());
-    }
-
-    /**
-     * yyyy-MM-dd HH:mm:ss
-     */
-    public static final String times(Date date) {
-        return new SimpleDateFormat(TIME_0_STYLE).format(date);
-    }
-
-    /**
-     * 2017年05月22日19时38分57秒
-     */
-    public static final String timesc(Date date) {
-        return new SimpleDateFormat(TIME_0_STYLE_CHINESE).format(date);
-    }
-
-    /**
-     * yyyy-MM-dd HH:mm:ss
-     */
-    public static final String times(long date) {
-        return new SimpleDateFormat(TIME_0_STYLE).format(date);
-    }
-
-    /**
-     * yyyy-MM-dd HH:mm
-     */
-    public static final String datehourminute(Date date) {
-        return new SimpleDateFormat(TIME_1_STYLE).format(date);
-    }
-
-    /**
-     * yyyy-MM-dd HH:mm
-     */
-    public static final String datehourminute(long date) {
-        return new SimpleDateFormat(TIME_1_STYLE).format(date);
-    }
-
-    /**
-     * yyyy-MM-dd
-     */
-    public static final String date(Date date) {
-        return new SimpleDateFormat(DATE_STYLE).format(date);
-    }
-
-    /**
-     * yyyy-MM-dd
-     */
-    public static final String date(long date) {
-        return new SimpleDateFormat(DATE_STYLE).format(date);
-    }
-
-    /**
-     * 字符串转换成Date
-     */
-    public static final Date getDateFromString(String dateTime) {
-        Date date = null;
-
-        SimpleDateFormat sdf = new SimpleDateFormat(TIME_0_STYLE);
-        try {
-            date = sdf.parse(dateTime);
-        } catch (ParseException p) {
-
+    public static final String time(Date time, int style) {
+        if (time == null) {
+            time = new Date();
         }
+        String timeStyle = null;
+        switch (style) {
+            case 1: {
+                timeStyle = TIME_STYLE_1;
+                break;
+            }
+            case 2: {
+                timeStyle = TIME_STYLE_2;
+                break;
+            }
+            case 4: {
+                timeStyle = TIME_STYLE_4;
+                break;
+            }
+            case 5: {
+                timeStyle = TIME_STYLE_5;
+                break;
+            }
+            case 6: {
+                timeStyle = TIME_STYLE_6;
+                break;
+            }
+            case 7: {
+                timeStyle = TIME_STYLE_7;
+                break;
+            }
+            default: {
+                timeStyle = TIME_STYLE_3;
+                break;
+            }
+        }
+        return new SimpleDateFormat(timeStyle).format(time);
+    }
 
-        return date;
+    /**
+     * 日期字符串转换成Date
+     *
+     * @param dateString 日期字符串
+     * @return 日期对象
+     * @throws ParseException
+     */
+    public static final Date string2date(String dateString) throws ParseException {
+        return new SimpleDateFormat(TIME_STYLE_3).parse(dateString);
     }
 
     /**
      * 比较两个日期之间的大小
      *
-     * @param d1
-     * @param d2
-     * @return 前者大于后者返回true 反之false
+     * @param date1 日期对象1
+     * @param date2 日期对象2
+     * @return date1 > date2，返回true，反之false
      */
-    public static final boolean compare2Date(Date d1, Date d2) {
-        Calendar c1 = Calendar.getInstance();
-        Calendar c2 = Calendar.getInstance();
-        c1.setTime(d1);
-        c2.setTime(d2);
-
-        int result = c1.compareTo(c2);
-        if (result >= 0)
-            return true;
-        else
-            return false;
+    public static final boolean compareDate(Date date1, Date date2) {
+        Calendar calendar1 = Calendar.getInstance();
+        Calendar calendar2 = Calendar.getInstance();
+        calendar1.setTime(date1);
+        calendar2.setTime(date2);
+        return calendar1.compareTo(calendar2) >= 0;
     }
 
     /**
      * 根据出生日期获得年龄
+     *
+     * @param birthday 出生日期
+     * @return 年龄
      */
-    public static byte getAge(Date birthDay) {
-        if (birthDay == null) return 0;
+    public static final byte getAge(Date birthday) {
+        if (birthday == null) {
+            return 0;
+        }
         Calendar cal = Calendar.getInstance();
 
-        if (cal.before(birthDay)) {
+        if (cal.before(birthday)) {
             return 0;
         }
         int yearNow = cal.get(Calendar.YEAR);
         int monthNow = cal.get(Calendar.MONTH);
         int dayOfMonthNow = cal.get(Calendar.DAY_OF_MONTH);
-        cal.setTime(birthDay);
+        cal.setTime(birthday);
 
         int yearBirth = cal.get(Calendar.YEAR);
         int monthBirth = cal.get(Calendar.MONTH);
@@ -176,7 +146,9 @@ public class DateUtils {
 
         if (monthNow <= monthBirth) {
             if (monthNow == monthBirth) {
-                if (dayOfMonthNow < dayOfMonthBirth) age--;
+                if (dayOfMonthNow < dayOfMonthBirth) {
+                    age--;
+                }
             } else {
                 age--;
             }
@@ -185,54 +157,94 @@ public class DateUtils {
     }
 
     /**
-     * 根据时间获取 ：例：2015-07-15 -> 两年前
+     * 获取时间的距离描述，两天前 ：例：2015-07-15 -> 两年前
      */
-    public static String characterDate(Date date) {
-        return RelativeDateFormatUtils.format(date);
+    public static final String relative(Date date) {
+        return RelativeDateFormat.format(date);
     }
-
-    /**
-     * 获取当前时间下一天的日期
-     *
-     * @param time
-     * @return
-     */
-    public static String getTomorrowStr(Date time) {
-        Calendar c = Calendar.getInstance();
-        c.setTime(time);
-        int day = c.get(Calendar.DATE);
-        c.set(Calendar.DATE, day + 1);
-        return new SimpleDateFormat("yyyy-MM-dd").format(c.getTime());
-    }
-
-    /**
-     * 获取当前时间上一天的日期
-     *
-     * @param time
-     * @return
-     */
-    public static String getYesterdayStr(Date time) {
-        Calendar c = Calendar.getInstance();
-        c.setTime(time);
-        int day = c.get(Calendar.DATE);
-        c.set(Calendar.DATE, day - 1);
-        return new SimpleDateFormat("yyyy-MM-dd").format(c.getTime());
-    }
-
-    /**
-     * 字符串转换日期
-     */
-    public static Date string2date(String dateStr) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_STYLE);
-        return sdf.parse(dateStr);
-    }
-
-    /**
-     * 字符串转换日期+日期
-     */
-    public static Date string2datetime(String datetimeStr) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat(TIME_0_STYLE);
-        return sdf.parse(datetimeStr);
-    }
-
 }
+
+class RelativeDateFormat {
+    private static final long ONE_MINUTE = 60000L;
+    private static final long ONE_HOUR = 3600000L;
+    private static final long ONE_DAY = 86400000L;
+    private static final long ONE_WEEK = 604800000L;
+
+    private static final String ONE_SECOND_AGO = "秒前";
+    private static final String ONE_MINUTE_AGO = "分钟前";
+    private static final String ONE_HOUR_AGO = "小时前";
+    private static final String ONE_DAY_AGO = "天前";
+    private static final String ONE_MONTH_AGO = "月前";
+    private static final String ONE_YEAR_AGO = "年前";
+
+    public static String format(Date date) {
+        long delta = System.currentTimeMillis() - date.getTime();
+        if (delta < 1L * ONE_MINUTE) {
+            long seconds = toSeconds(delta);
+            return (seconds <= 0 ? 1 : seconds) + ONE_SECOND_AGO;
+        }
+        if (delta < 45L * ONE_MINUTE) {
+            long minutes = toMinutes(delta);
+            return (minutes <= 0 ? 1 : minutes) + ONE_MINUTE_AGO;
+        }
+        if (delta < 24L * ONE_HOUR) {
+            long hours = toHours(delta);
+            return (hours <= 0 ? 1 : hours) + ONE_HOUR_AGO;
+        }
+        if (delta < 48L * ONE_HOUR) {
+            return "昨天";
+        }
+        if (delta < 30L * ONE_DAY) {
+            long days = toDays(delta);
+            return (days <= 0 ? 1 : days) + ONE_DAY_AGO;
+        }
+        if (delta < 12L * 4L * ONE_WEEK) {
+            long months = toMonths(delta);
+            return (months <= 0 ? 1 : months) + ONE_MONTH_AGO;
+        } else {
+            long years = toYears(delta);
+            return (years <= 0 ? 1 : years) + ONE_YEAR_AGO;
+        }
+    }
+
+    private static long toSeconds(long date) {
+        return date / 1000L;
+    }
+
+    private static long toMinutes(long date) {
+        return toSeconds(date) / 60L;
+    }
+
+    private static long toHours(long date) {
+        return toMinutes(date) / 60L;
+    }
+
+    private static long toDays(long date) {
+        return toHours(date) / 24L;
+    }
+
+    private static long toMonths(long date) {
+        return toDays(date) / 30L;
+    }
+
+    private static long toYears(long date) {
+        return toMonths(date) / 365L;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

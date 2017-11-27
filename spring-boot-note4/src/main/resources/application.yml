@@ -1,5 +1,5 @@
 server:
-  address: 192.168.1.119
+  address: 192.168.1.104
   port: 5204
   context-path: /note4
   tomcat:
@@ -8,10 +8,11 @@ server:
 https:
   port: 7204
   keystore-password: 123456
-  keystore-file: D:/rsakey/loveshare.keystore
+#  keystore-file: D:/rsakey/loveshare.keystore #Windows
+  keystore-file: /Users/tony_tian/develop/keys/loveshare.keystore  #Mac
 spring:
-  resources:
-    static-locations: classpath:/static/
+#  resources:  # swagger html: 404
+#    static-locations: classpath:/static/
   freemarker:
     template-loader-path: classpath:/templates/
     charset: UTF-8
@@ -20,3 +21,12 @@ spring:
     content-type: text/html
     enabled: true
     suffix: .html
+  messages:
+    basename: ValidationMessages
+swagger:
+  api: "me.loveshare.web.api"
+  title: "数据测试接口文档"
+  description: "数据测试接口文档，RESTful API 接口文档说明"
+  version: "1.0.0"
+  author: "Tony_Tian"
+  gmt: "2017-11-27"
