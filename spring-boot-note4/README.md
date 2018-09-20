@@ -18,7 +18,15 @@ Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
 ```
 #### 生成证书
-##### keytool -genkey -alias loveshare -keypass 123456 -keyalg RSA -keysize 1024 -validity 520 -storepass 123456 -keystore D:/rsakey/loveshare.keystore
+##### winndows
+```
+keytool -genkey -alias loveshare -keypass 123456 -keyalg RSA -keysize 1024 -validity 520 -storepass 123456 -keystore D:/rsakey/loveshare.keystore
+```
+##### mac
+```
+cd /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/bin
+keytool -genkey -alias loveshare -keypass 123456 -keyalg RSA -keysize 1024 -validity 520 -storepass 123456 -keystore ~/loveshare.keystore
+```
 ##### 使用keytool命令生成证书：
 ```
 keytool -genkey 
